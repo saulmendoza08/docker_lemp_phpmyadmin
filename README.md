@@ -1,4 +1,4 @@
-# nginx-php7.4-mysql8-node-docker-network
+# nginx-php7.4-mysql8-docker-network
 Fast lightweight Docker network using PHP MySQL Nginx and Node
 # docker_lemp_phpmyadmin
 
