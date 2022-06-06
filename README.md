@@ -13,3 +13,7 @@ localizarce en la carpeta donde se clono el repo y ejecutar docker-compose up -d
 docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 
 
+# contraseñas por default
+
+usuario root
+contraseña paraCetamol19
