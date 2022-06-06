@@ -17,3 +17,9 @@ docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.
 
 usuario root
 contraseña paraCetamol19
+
+# mas templates de apps para portainer
+
+copiarlo en setting 
+
+https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Template/template.json
