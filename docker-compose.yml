@@ -1,7 +1,5 @@
-version: '3'
+version: '3.1'
 
-networks:
-    nginx-php74-db-phpmyadmin:
 
 services:
 
@@ -18,8 +16,9 @@ services:
             - php74-service
             - db
         networks:
-            - nginx-php74-db-phpmyadmin
-
+          
+          red_interna:
+            ipv4_address: 192.168.20.10
     # php
     php74-service:
         build:
@@ -31,7 +30,9 @@ services:
         volumes:
             - ./app:/var/www/project
         networks:
-            - nginx-php74-db-phpmyadmin
+          
+          red_interna:
+            ipv4_address: 192.168.20.20
     # db 
     db:
         image: mysql
@@ -47,7 +48,9 @@ services:
             - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
         networks:
-            - default
+          
+          red_interna:
+            ipv4_address: 192.168.20.30
     #phpmyadmin
 
     phpmyadmin:
@@ -60,6 +63,20 @@ services:
             MYSQL_USER: root
             MYSQL_PASSWORD: paraCetamol19
             MYSQL_ROOT_PASSWORD: paraCetamol19
+        networks:
+          
+          red_interna:
+            ipv4_address: 192.168.20.40
+
+
+networks:
+
+    red_interna:
+        ipam:
+            config:
+              - subnet: 192.168.20.0/24
     
 volumes:
     persistent:
+
+
