@@ -16,7 +16,7 @@ services:
             - php74-service
             - db
         networks:
-          
+
           red_interna:
             ipv4_address: 192.168.20.10
     # php
@@ -26,18 +26,18 @@ services:
             dockerfile: ./php/Dockerfile
         container_name: php74-container
         ports:
-            - "9000:9000"
+            - "9090:9000"
         volumes:
             - ./app:/var/www/project
         networks:
-          
+
           red_interna:
             ipv4_address: 192.168.20.20
-    # db 
+    # db
     db:
         image: mysql
         ports:
-            - "3306:3306"
+            - "3307:3307"
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: dbname
@@ -48,7 +48,7 @@ services:
             - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
         networks:
-          
+
           red_interna:
             ipv4_address: 192.168.20.30
     #phpmyadmin
@@ -58,14 +58,14 @@ services:
         links:
             - db:db
         ports:
-            - 8000:80
+            - 8181:80
         environment:
             MYSQL_USER: root
             MYSQL_PASSWORD: paraCetamol19
             MYSQL_ROOT_PASSWORD: paraCetamol19
             UPLOAD_LIMIT: 100M
         networks:
-          
+
           red_interna:
             ipv4_address: 192.168.20.40
 
@@ -76,8 +76,7 @@ networks:
         ipam:
             config:
               - subnet: 192.168.20.0/24
-    
+
 volumes:
     persistent:
-
 
