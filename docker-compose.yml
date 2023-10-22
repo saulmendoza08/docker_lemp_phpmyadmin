@@ -16,7 +16,7 @@ services:
             - php74-service
             - db
         networks:
-
+          
           red_interna:
             ipv4_address: 192.168.20.10
     # php
@@ -30,10 +30,10 @@ services:
         volumes:
             - ./app:/var/www/project
         networks:
-
+          
           red_interna:
             ipv4_address: 192.168.20.20
-    # db
+    # db 
     db:
         image: mysql
         ports:
@@ -48,7 +48,7 @@ services:
             - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
         networks:
-
+          
           red_interna:
             ipv4_address: 192.168.20.30
     #phpmyadmin
@@ -65,7 +65,7 @@ services:
             MYSQL_ROOT_PASSWORD: paraCetamol19
             UPLOAD_LIMIT: 100M
         networks:
-
+          
           red_interna:
             ipv4_address: 192.168.20.40
 
@@ -76,7 +76,7 @@ networks:
         ipam:
             config:
               - subnet: 192.168.20.0/24
-
+    
 volumes:
     persistent:
 
